@@ -24,12 +24,6 @@ x_test = np.array(x_test)
 y_test = np.array(y_test)
 
 
-x_train = x_train.reshape(len(x_train), 5)
-y_train = y_train.reshape(len(y_train), 1)
-x_test = x_test.reshape(len(x_test), 1)
-y_test = y_test.reshape(len(y_test), 1)
-
-
 model = Sequential()
 model.add(Dense(units=128, input_dim=5, activation='sigmoid'))
 model.add(Dense(units=64, activation='sigmoid'))
