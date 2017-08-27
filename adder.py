@@ -52,7 +52,6 @@ def learn():
 
 def save():
     model.save_weights("modeladd.h5")
-
 # loss: 3.7280e-04 - acc: 1.0000
 
 
