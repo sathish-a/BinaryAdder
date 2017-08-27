@@ -3,32 +3,32 @@ from sklearn.utils import shuffle
 from keras.models import Sequential
 from keras.layers import Dense
 
+dim = 8  # No.of.bits the model is going to accept this should be same for input and output dimension
+
 x = 0
 y = 0
 x_train = 0
 y_train = 0
 x_test = 0
 y_test = 0
-
 model = None
 
 
 def init():
     global model
     model = Sequential()
-    model.add(Dense(units=128, input_dim=8, activation='sigmoid'))
+    model.add(Dense(units=128, input_dim=dim, activation='sigmoid'))
     model.add(Dense(units=64, activation='sigmoid'))
-    model.add(Dense(units=8, activation="sigmoid"))
-    model.compile(loss='binary_crossentropy',
-                  optimizer='adam',
-                  metrics=['accuracy'])
+    model.add(Dense(units=dim, activation="sigmoid"))
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 
 def generate(v):
+    global no_of_bits
     x_ = []
     for i in range(254):
         y_ = []
-        z = bin(i + v)[2:].zfill(8)
+        z = bin(i + v)[2:].zfill(no_of_bits)
         for j in z:
             y_.append(int(j))
         x_.append(y_)
@@ -52,6 +52,7 @@ def learn():
 
 def save():
     model.save_weights("modeladd.h5")
+
 
 # loss: 3.7280e-04 - acc: 1.0000
 
@@ -87,4 +88,4 @@ def next(val):
 
 init()
 load()
-next(231)
+next(123)
