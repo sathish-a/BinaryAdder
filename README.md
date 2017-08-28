@@ -2,7 +2,7 @@
 A model to do binary addition
 
 A machine learning model to implement a binary adder<br>
-This trained model adds one bit to the input and displays it.<br>
+This trained model adds one bit to the input and display it.<br>
 Example:<br>
 Input: [[0 1 1 1 1 0 1 1]] output: [[0 1 1 1 1 1 0 0]]<br>
 123 is the given input, what it does is it gives the next number 124, by adding 1 to 123.<br>
